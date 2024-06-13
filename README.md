@@ -72,8 +72,34 @@ plt.xlabel('')
 # Mostrar el gráfico
 plt.show()
 ```
+
+#### Title Impact
+Analysis revealed a significant correlation between title and survival:
+```python
+# Función para agrupar los títulos
+def agrupar_titulos(titulo):
+    if titulo in ['Mr', 'Miss', 'Mrs']:
+        return titulo
+    else:
+        return 'Otros'
+
+# Aplicando la función para agrupar los títulos
+df['Grupo_Titulo'] = df['Title'].apply(agrupar_titulos)
+
+# Agrupando los datos por título y supervivencia
+agrupado = df.groupby(['Grupo_Titulo', 'Survived']).size().unstack(fill_value=0)
+
+# Generando el gráfico
+agrupado.plot(kind='bar')
+plt.title('Supervivientes y No Supervivientes por Título')
+plt.xlabel('Título')
+plt.ylabel('Cantidad')
+plt.legend(['No Sobrevivió', 'Sobrevivió'])
+plt.show()
+```
+
 ## Conclusion
-The analysis highlighted key factors like gender, class, and age in survival prediction.
+The analysis highlighted key factors like gender, class, title and age in survival prediction.
 
 ## Future Work
 Future enhancements could include integrating more features, trying advanced models, and using larger datasets for more robust predictions.

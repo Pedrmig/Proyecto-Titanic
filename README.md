@@ -3,6 +3,9 @@
 ## Introduction
     This project focuses on analyzing the Titanic dataset to identify factors influencing passenger survival. 
 
+### Data Dictionary
+https://github.com/Pedrmig/Proyecto-Titanic/blob/main/Images/data_dic.png?raw=true
+
 ### Data Cleaning
     The ‘Age’ and ‘Cabin’ columns contain a significant number of null entries, necessitating careful data cleaning.
 

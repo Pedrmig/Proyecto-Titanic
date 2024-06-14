@@ -4,4 +4,4 @@ numpy
 seaborn
 streamlit_option_menu
 matplotlib
-sklearn
+scikit-learn

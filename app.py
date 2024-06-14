@@ -26,7 +26,7 @@ with st.sidebar:
     if selected == "Home":
         st.title(f"{selected}")
         st.header('Análisis del conjunto de datos del Titanic para identificar factores que influyeron en la supervivencia de los pasajeros.')
-        #st.image('/Proyecto-Titanic/Images/titanic_Underwater.jpg',use_column_width=True)
+        st.image('Images/titanic_Underwater.png',use_column_width=True)
 
     if selected == "Datos":
         st.title(f"{selected}")
@@ -47,7 +47,7 @@ if selected == "Home":
     st.write('El análisis de datos es un proceso que se utiliza para inspeccionar, limpiar y modelar datos con el objetivo de descubrir información útil, llegar a conclusiones y apoyar la toma de decisiones.')
     st.write('El conjunto de datos del Titanic contiene información sobre los pasajeros del Titanic, incluidos detalles como la edad, el sexo, la clase de pasajero, el puerto de embarque y si sobrevivieron o no.')
     st.write('El análisis de datos del Titanic se centra en identificar factores que influyeron en la supervivencia de los pasajeros.')
-    #st.image('Proyecto-Titanic/Images/titanic_real.jpeg',use_column_width=True)
+    st.image('Images/titanic_real.png',use_column_width=True) 
     
 if selected == "Datos":
 

@@ -1,110 +1,37 @@
 # Titanic Survival Analysis
 
 ## Introduction
-This project focuses on analyzing the Titanic dataset to identify factors influencing passenger survival. 
+   This project focuses on analyzing the Titanic dataset to identify factors influencing passenger survival. 
 
-### Data Reading
-The data is loaded using pandas:
-```python
-import pandas as pd
-df = pd.read_csv('titanic.csv')
-```
-## Data Cleaning
-The ‘Age’ and ‘Cabin’ columns contain a significant number of null entries, necessitating careful data cleaning.
+### Data Dictionary
+![image](https://github.com/Pedrmig/Proyecto-Titanic/assets/102622659/af2f14c9-7687-458e-ad5e-44c0bc8a86e6)
 
-#### Constult
-Initiating query for null records.
-```python
-df.isnull().sum() / len(df) * 100 
-```
 
-#### Cabin column
-Replacing the NaN values in the 'Cabin' column with 'No_Cabin_Data'
-```python
-df['Cabin'].fillna('Sin_Datos_Cabina', inplace=True)
-```
+### Data Cleaning
+   The ‘Age’ and ‘Cabin’ columns contain a significant number of null entries, necessitating careful data cleaning.
 
-#### Age column
-Substituting NaN values in the ‘Age’ column with predictions using linear regression.
-```python
-le = LabelEncoder()
-df['Sex1'] = le.fit_transform(df['Sex'])
-df_age_not_null = df[df['Age'].notnull()]
-df_age_is_null = df[df['Age'].isnull()]
-model = LinearRegression()
-model.fit(df_age_not_null[['Fare', 'Sex1', 'Pclass']], df_age_not_null['Age'])
-predicted_ages = model.predict(df_age_is_null[['Fare', 'Sex1', 'Pclass']])
-df.loc[df['Age'].isnull(), 'Age'] = predicted_ages
-```
+   Replacing the NaN values in the 'Cabin' column with 'No_Cabin_Data'
+   Replacing the NaN values in the ‘Age’ column with predictions using linear regression.
 
-#### Gender Impact
-Analysis revealed a significant correlation between gender and survival:
-```python
-df.groupby('Sex')['Survival'].mean().plot(kind='bar')
-```
+### Gender Impact
+![image](https://github.com/Pedrmig/Proyecto-Titanic/assets/102622659/ebb629e3-2c02-4c28-a029-85ba20a80c85)
 
-#### Age Impact
-Age's role was explored, highlighting varying survival rates across age groups:
-```python
-# Divide los datos en grupos de niños y adultos
-df['Ninos_adultos'] = None
-df.loc[df[df['Age'] < 18].index, 'Ninos_adultos'] = 'Niños'
-df.loc[df[(df['Age'] >= 18) & (df['Age'] < 60)].index, 'Ninos_adultos'] = 'Adultos'
-df.loc[df[df['Age'] > 60].index, 'Ninos_adultos'] = 'Mayores'
+### Age Impact
+![image](https://github.com/Pedrmig/Proyecto-Titanic/assets/102622659/1d5a9107-8889-45dc-b9e7-04b4e537decc)
 
-# Función para formatear el eje x en porcentaje
-formatter = FuncFormatter(lambda x, _: f'{x:.0%}')
+### Title Impact
+![image](https://github.com/Pedrmig/Proyecto-Titanic/assets/102622659/a68397d4-3ca1-49dc-8010-3c0c62f9e3da)
 
-# Genera gráfico de supervivencia de niños y adultos en porcentaje
-ordem = ['Niños', 'Adultos', 'Mayores']
-df.groupby('Ninos_adultos')['Survived'].mean().loc[ordem].plot.barh(
-    title='Promedio de Supervivencia', 
-    figsize=(10, 3),
-    color= ['darkblue', 'blue', 'lightblue'],
-).set_ylabel('')
-
-# Aplicar el formato de porcentaje al eje x
-plt.gca().xaxis.set_major_formatter(formatter)
-
-# Establecer la etiqueta del eje x
-plt.xlabel('')
-
-# Mostrar el gráfico
-plt.show()
-```
-
-#### Title Impact
-Analysis revealed a significant correlation between title and survival:
-```python
-# Función para agrupar los títulos
-def agrupar_titulos(titulo):
-    if titulo in ['Mr', 'Miss', 'Mrs']:
-        return titulo
-    else:
-        return 'Otros'
-
-# Aplicando la función para agrupar los títulos
-df['Grupo_Titulo'] = df['Title'].apply(agrupar_titulos)
-
-# Agrupando los datos por título y supervivencia
-agrupado = df.groupby(['Grupo_Titulo', 'Survived']).size().unstack(fill_value=0)
-
-# Generando el gráfico
-agrupado.plot(kind='bar')
-plt.title('Supervivientes y No Supervivientes por Título')
-plt.xlabel('Título')
-plt.ylabel('Cantidad')
-plt.legend(['No Sobrevivió', 'Sobrevivió'])
-plt.show()
-```
+### Class Impact
+![image](https://github.com/Pedrmig/Proyecto-Titanic/assets/102622659/cf8bef77-d107-4754-a8a9-2208e8853dbe)
 
 ## Conclusion
-The analysis highlighted key factors like gender, class, title and age in survival prediction.
+   The analysis highlighted key factors like gender, class, title and age in survival prediction.
 
 ## Future Work
-Future enhancements could include integrating more features, trying advanced models, and using larger datasets for more robust predictions.
+   Future enhancements could include integrating more features, trying advanced models, and using larger datasets for         more robust predictions.
 
 ## How to Run the Notebook
-1. Ensure Python and Jupyter Notebook are installed.
-2. Install necessary packages: `pandas`, `sklearn`, `matplotlib`, `tensorflow`.
-3. Run the notebook cell by cell to observe each step of the analysis and modeling.
+   1. Ensure Python and Jupyter Notebook are installed.
+   2. Install necessary packages: `pandas`, `sklearn`, `matplotlib`, `tensorflow`.
+   3. Run the notebook cell by cell to observe each step of the analysis and modeling.

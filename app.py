@@ -23,12 +23,6 @@ with st.sidebar:
         icons = ["house","book","bar-chart","filter"],
         menu_icon = "cast",
         default_index = 0,)
-'''with st.sidebar:
-    selected = st.selectbox(
-        label = "Main Menu",
-        options = ["Home","Datos","Análisis","Filtros"],
-        index = 0
-    )'''
     if selected == "Home":
         st.title(f"{selected}")
         st.header('Análisis del conjunto de datos del Titanic para identificar factores que influyeron en la supervivencia de los pasajeros.')

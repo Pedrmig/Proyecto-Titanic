@@ -6,6 +6,6 @@ streamlit_option_menu
 importlib.util
 streamlit
 
-matplotlib.pyplot as plt
+matplotlib.pyplot
 sklearn.linear_model
 sklearn.preprocessing

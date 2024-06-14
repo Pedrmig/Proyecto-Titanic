@@ -2,6 +2,6 @@ streamlit
 pandas
 numpy
 seaborn
-importlib
+streamlit_option_menu
 matplotlib
 sklearn

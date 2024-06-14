@@ -3,9 +3,6 @@ pandas
 numpy
 seaborn
 streamlit_option_menu
-importlib.util
-streamlit
-
-matplotlib.pyplot
-sklearn.linear_model
-sklearn.preprocessing
+importlib
+matplotlib
+sklearn

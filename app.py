@@ -6,8 +6,8 @@ import numpy as np
 import importlib.util
 import streamlit as st
 #from streamlit_option_menu import option_menu
-import matplotlib.pyplot as plt
-from matplotlib.ticker import FuncFormatter
+#import matplotlib.pyplot as plt
+#from matplotlib.ticker import FuncFormatter
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import LabelEncoder
 

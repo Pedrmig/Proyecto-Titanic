@@ -26,7 +26,7 @@ with st.sidebar:
     if selected == "Home":
         st.title(f"{selected}")
         st.header('Análisis del conjunto de datos del Titanic para identificar factores que influyeron en la supervivencia de los pasajeros.')
-        st.image('Images/titanic_Underwater.png',use_column_width=True)
+        #st.image('Images/titanic_Underwater.png',use_column_width=True)
 
     if selected == "Datos":
         st.title(f"{selected}")

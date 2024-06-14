@@ -1,13 +1,13 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-#import seaborn as sns
-#import streamlit_option_menu
+import seaborn as sns
+import streamlit_option_menu
 import importlib.util
 import streamlit as st
-#from streamlit_option_menu import option_menu
-#import matplotlib.pyplot as plt
-#from matplotlib.ticker import FuncFormatter
+from streamlit_option_menu import option_menu
+import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import LabelEncoder
 
@@ -16,22 +16,19 @@ from sklearn.preprocessing import LabelEncoder
 st.set_page_config(page_title='Análisis Tytanic Dataset' ,layout="wide",page_icon='Boat')
 
 # creando el menú de opciones
-'''with st.sidebar:
+with st.sidebar:
     selected = option_menu(
         menu_title = "Main Menu",
         options = ["Home","Datos","Análisis","Filtros"],
         icons = ["house","book","bar-chart","filter"],
         menu_icon = "cast",
         default_index = 0,)
-'''    
-with st.sidebar:
+'''with st.sidebar:
     selected = st.selectbox(
         label = "Main Menu",
         options = ["Home","Datos","Análisis","Filtros"],
         index = 0
-    )
-
-
+    )'''
     if selected == "Home":
         st.title(f"{selected}")
         st.header('Análisis del conjunto de datos del Titanic para identificar factores que influyeron en la supervivencia de los pasajeros.')

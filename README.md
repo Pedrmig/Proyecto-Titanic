@@ -3,6 +3,9 @@
 ## Introduction
    This project focuses on analyzing the Titanic dataset to identify factors influencing passenger survival. 
 
+### URL for accessing the Streamlit app with the data analysis
+   https://titanic-pedrmig.streamlit.app/
+
 ### Data Dictionary
 ![image](https://github.com/Pedrmig/Proyecto-Titanic/assets/102622659/af2f14c9-7687-458e-ad5e-44c0bc8a86e6)
 

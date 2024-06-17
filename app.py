@@ -58,7 +58,7 @@ if selected == "Datos":
     st.write(df.head())
 
     st.header("Analisis de valores nulos")
-    st.write(((df.isnull().sum() / len(df))*100).to_frame().T)
+    st.write((((df.isnull().sum() / len(df))*100).apply(lambda x:f'{x:2f}%')).to_frame().T)
 
     st.header("Limpieza de los Datos")
 
